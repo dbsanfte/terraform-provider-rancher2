@@ -353,7 +353,7 @@ func resourceRancher2ClusterUpdate(d *schema.ResourceData, meta interface{}) err
 		}
 
 		stateConf := &resource.StateChangeConf{
-			Pending:    []string{"active", "provisioning", "pending", "updating", "upgrading"},
+			Pending:    []string{"active", "provisioning", "pending", "updating", "upgrading", "waiting"},
 			Target:     []string{"active", "provisioning", "pending"},
 			Refresh:    clusterStateRefreshFunc(client, newCluster.ID),
 			Timeout:    d.Timeout(schema.TimeoutUpdate),
